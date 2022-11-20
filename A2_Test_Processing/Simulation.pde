@@ -45,19 +45,19 @@ void simulationsSchritt() {
 
                 color farbe = img.pixels[y * width + x];
 
-                if (x < width - 1 && (img.pixels[y * width + x + 1] & 0xFFFFFF) == 0) {
+                if (x < width - 1 && (img.pixels[y * width + x + 1] & 0xFFFFFF) == 0 && random(1) < WAHRSCHEINLICHKEIT_RECHTS) {
                     img.pixels[y * width + x + 1] = farbe;
                     gefuelltePixel++;
                 }
-                if (y < height - 1 && (img.pixels[(y + 1) * width + x] & 0xFFFFFF) == 0) {
+                if (y < height - 1 && (img.pixels[(y + 1) * width + x] & 0xFFFFFF) == 0 && random(1) < WAHRSCHEINLICHKEIT_UNTEN) {
                     img.pixels[(y + 1) * width + x] = farbe;
                     gefuelltePixel++;
                 }
-                if (x > 0 && (img.pixels[y * width + x - 1] & 0xFFFFFF) == 0) {
+                if (x > 0 && (img.pixels[y * width + x - 1] & 0xFFFFFF) == 0 && random(1) < WAHRSCHEINLICHKEIT_LINKS) {
                     img.pixels[y * width + x - 1] = farbe;
                     gefuelltePixel++;
                 }
-                if (y > 0 && (img.pixels[(y - 1) * width + x] & 0xFFFFFF) == 0) {
+                if (y > 0 && (img.pixels[(y - 1) * width + x] & 0xFFFFFF) == 0 && random(1) < WAHRSCHEINLICHKEIT_OBEN) {
                     img.pixels[(y - 1) * width + x] = farbe;
                     gefuelltePixel++;
                 }
